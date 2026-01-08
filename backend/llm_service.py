@@ -15,11 +15,18 @@ class LLMService:
     def __init__(self):
         self.ollama_url = OLLAMA_URL
         self.ollama_model = OLLAMA_MODEL
-        self.openai_client = AsyncOpenAI(api_key=OPENAI_API_KEY)
+        if OPENAI_API_KEY:
+            self.openai_client = AsyncOpenAI(api_key=OPENAI_API_KEY)
+        else:
+            self.openai_client = None
+            print("⚠️ Warning: OPENAI_API_KEY is not set. OpenAI features will not work.")
         self.timeout = 180.0
     
     async def categorize_document_openai(self, text: str, doc_type: str, model: str = "gpt-4o-mini") -> str:
         """Categorize using OpenAI models."""
+        if not self.openai_client:
+            print("❌ Error: OpenAI client not initialized. Check your OPENAI_API_KEY.")
+            return "Other"
         prompt = f"""Analyze the following {doc_type.upper()} and categorize it into ONE of these categories:
 - Software Engineering
 - Artificial Intelligence / Machine Learning
@@ -105,6 +112,15 @@ Respond with ONLY the category name, nothing else."""
     
     async def match_cv_to_jd_openai(self, cv_text: str, jd_text: str, cv_name: str, model: str = "gpt-4o-mini") -> Dict:
         """Match CV to JD using OpenAI models with enhanced prompts."""
+        if not self.openai_client:
+            return {
+                "cv_name": cv_name,
+                "score": 0,
+                "match_level": "Error",
+                "key_matches": [],
+                "gaps": [],
+                "summary": "Error: OPENAI_API_KEY is not set in Render environment variables."
+            }
         
         # Enhanced prompt for better accuracy
         prompt = f"""You are an expert HR recruiter with 20+ years of experience in talent acquisition. Perform a comprehensive analysis of how well this candidate's CV matches the Job Description.

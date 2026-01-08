@@ -57,7 +57,8 @@ const UploadSection = ({ onUploadComplete, onSwitchToMatch }) => {
             }, 5000);
         } catch (error) {
             console.error('Upload error:', error);
-            alert('Error uploading CVs. Please try again.');
+            const errorMsg = error.response?.data?.detail || error.message || 'Unknown error';
+            alert(`Error uploading CVs: ${errorMsg}`);
         } finally {
             setUploadingCV(false);
         }
