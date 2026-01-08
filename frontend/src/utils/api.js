@@ -1,6 +1,15 @@
 import axios from 'axios';
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api').replace(/\/+$/, '') + '/';
+const getBaseUrl = () => {
+  let url = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+  // If the user forgot to add /api at the end, add it automatically
+  if (!url.toLowerCase().endsWith('/api') && !url.toLowerCase().endsWith('/api/')) {
+    url = url.replace(/\/+$/, '') + '/api';
+  }
+  return url.replace(/\/+$/, '') + '/';
+};
+
+const API_BASE_URL = getBaseUrl();
 
 const api = axios.create({
   baseURL: API_BASE_URL,
