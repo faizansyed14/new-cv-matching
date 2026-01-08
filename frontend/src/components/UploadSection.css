@@ -1,0 +1,238 @@
+.upload-section {
+    padding: var(--spacing-lg);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.upload-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.upload-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.upload-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+}
+
+.dropzone {
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    background: var(--bg-secondary);
+}
+
+.dropzone:hover,
+.dropzone.active {
+    border-color: var(--primary);
+    background: var(--bg-tertiary);
+    transform: scale(1.02);
+}
+
+.dropzone svg {
+    color: var(--primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.dropzone p {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.file-types {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.file-list {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.file-list h4 {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.file-item svg {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.file-item span {
+    flex: 1;
+    font-size: 0.875rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: var(--error);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.remove-btn:hover {
+    color: var(--secondary);
+}
+
+.more-files {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    text-align: center;
+    margin-top: var(--spacing-xs);
+}
+
+.upload-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+.upload-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.spinner-icon {
+    animation: spin 1s linear infinite;
+}
+
+.upload-results {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
+.results-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.success-icon {
+    color: var(--success);
+}
+
+.results-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--success);
+}
+
+.stat.error .stat-value {
+    color: var(--error);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.categorized-files {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.category-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+}
+
+.category-badge .filename {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.progress-container {
+    margin-top: var(--spacing-md);
+}
+
+/* Quick Match Section */
+.quick-match-section {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%);
+    border: 2px solid var(--primary);
+}
+
+.quick-match-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.match-icon {
+    color: var(--accent);
+    animation: pulse 2s infinite;
+}
+
+.match-text h3 {
+    margin: 0 0 var(--spacing-xs) 0;
+    color: var(--text-primary);
+}
+
+.match-text p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.quick-match-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 1.1rem;
+    padding: 1rem;
+}
