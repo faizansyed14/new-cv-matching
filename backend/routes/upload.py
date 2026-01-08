@@ -11,7 +11,7 @@ from models import Document
 from document_parser import document_parser
 from llm_service import llm_service
 
-router = APIRouter(prefix="/api/upload", tags=["upload"])
+router = APIRouter(prefix="/upload", tags=["upload"])
 
 UPLOAD_DIR = "uploads"
 

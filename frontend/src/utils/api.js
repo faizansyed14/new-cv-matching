@@ -16,7 +16,7 @@ export const uploadCVs = async (files) => {
     formData.append('files', file);
   });
 
-  const response = await axios.post(`${API_BASE_URL}/upload/cv`, formData, {
+  const response = await api.post('/upload/cv', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -28,7 +28,7 @@ export const uploadJD = async (file) => {
   const formData = new FormData();
   formData.append('file', file);
 
-  const response = await axios.post(`${API_BASE_URL}/upload/jd`, formData, {
+  const response = await api.post('/upload/jd', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },

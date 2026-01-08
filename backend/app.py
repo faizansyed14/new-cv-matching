@@ -22,10 +22,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include routers
-app.include_router(upload.router)
-app.include_router(database.router)
-app.include_router(matching.router)
+# Include routers with standardized /api prefix
+app.include_router(upload.router, prefix="/api")
+app.include_router(database.router, prefix="/api")
+app.include_router(matching.router, prefix="/api")
 
 # Startup event
 @app.on_event("startup")

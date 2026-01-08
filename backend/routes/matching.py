@@ -9,7 +9,7 @@ from database import get_db
 from models import Document, MatchResult
 from llm_service import llm_service
 
-router = APIRouter(prefix="/api/match", tags=["matching"])
+router = APIRouter(prefix="/match", tags=["matching"])
 
 class MatchRequest(BaseModel):
     jd_id: int

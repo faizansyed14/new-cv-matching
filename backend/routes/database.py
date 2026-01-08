@@ -7,7 +7,7 @@ import os
 from database import get_db
 from models import Document
 
-router = APIRouter(prefix="/api/documents", tags=["database"])
+router = APIRouter(prefix="/documents", tags=["database"])
 
 @router.get("")
 async def get_documents(
